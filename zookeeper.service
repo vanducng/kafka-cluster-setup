@@ -1,0 +1,14 @@
+[Unit]
+Description=ZooKeeper Service
+Requires=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/home/vagrant/kafka/bin/zookeeper-server-start.sh /home/vagrant/kafka/config/zookeeper.properties
+ExecStop=/home/vagrant/kafka/bin/zookeeper-server-stop.sh
+
+[Install]
+WantedBy=multi-user.target

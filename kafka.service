@@ -1,0 +1,18 @@
+[Unit]
+Description=Apache Kafka server (broker)
+Requires=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+#Environment=JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
+#Environment=PATH=$PATH:/home/vagrant/kafka/bin
+#Environment=PROM_HOME=/home/vagrant/prometheus
+#Environment=KAFKA_OPTS="-javaagent:$PROM_HOME/jmx_prometheus_javaagent-0.11.0.jar=8080:$PROM_HOME/kafka-2_0_0.yml"      ExecStart=/home/vagrant/kafka/bin/kafka-server-start.sh /home/vagrant/kafka/config/server.properties
+ExecStop=/home/vagrant/kafka/bin/kafka-server-stop.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
