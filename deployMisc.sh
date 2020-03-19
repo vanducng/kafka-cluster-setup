@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo yum install -y vim nano tar screen nmap ca-certificates net-tools zip unzip
 sudo yum install -y java-1.8.0-openjdk
-
+sudo hostnamectl set-hostname $2
 
 echo "192.168.10.35 kafka1.com
 192.168.10.36 kafka2.com
@@ -15,7 +15,7 @@ echo "192.168.10.35 kafka1.com
 mkdir -p Installed
 cd Installed
 
-sudo curl -sSL https://get.docker.com/ | sh
+sudo curl -fsSL https://get.docker.com/ | sh
 sudo usermod -aG docker vagrant
 sudo systemctl start docker
 
